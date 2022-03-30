@@ -1,7 +1,13 @@
-import express from 'express';
+import express from "express";
+import connect from './utils/connect';
+import config from 'config';
+
+const port = config.get<number>('port');
 
 const app = express();
 
-app.listen(1337,()=>{
-    console.log("The app is running for now ");
+app.listen(port, async() => {
+  console.log("The app is running for now ");
+
+  await connect();
 });
