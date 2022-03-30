@@ -1,13 +1,17 @@
 import express from "express";
-import connect from './utils/connect';
-import config from 'config';
+import connect from "./utils/connect";
+import config from "config";
+import logger from "./utils/logger"
 
-const port = config.get<number>('port');
+
+
+const port = config.get<number>("port");
 
 const app = express();
 
-app.listen(port, async() => {
-  console.log("The app is running for now ");
+app.listen(port, async () => {
+  logger.info(`App is running at http://localhost:${port}`);
+
 
   await connect();
 });
