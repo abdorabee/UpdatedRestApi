@@ -2,6 +2,8 @@ export default {
   port: 1337,
   dbUri: "mongodb:localhost:27017/UpdatedRestApi",
   saltWorkFactor: 10,
+  accessTokenTtl:'15m',
+  refreshTokenTtl:'1y',
   publicKey: `-----BEGIN PUBLIC KEY-----
   MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCAclzUJU7cY+x1+7tREYFYt8jB
   +e6hfmRb+AHucEXfxF4sA0xP7kPgXwLOpixhV+/RSU0udjBIPHaRkY1rZE3HpDNi
