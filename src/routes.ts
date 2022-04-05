@@ -1,5 +1,8 @@
 import { Express, Request, Response } from "express";
-import {createUserSessionHandler} from "./controllers/session.controller";
+import {
+  createUserSessionHandler,
+  getUserSessionsHandler,
+} from "./controllers/session.controller";
 import { createUserHandler } from "./controllers/user.controller";
 import validateResource from "./middleware/validateResource";
 import { createSessionSchema } from "./schema/session.schema";
@@ -15,6 +18,8 @@ function routes(app: Express) {
     validateResource(createSessionSchema),
     createUserSessionHandler
   );
+
+  app.get("/api/sessions", getUserSessionsHandler);
 }
 
 export default routes;
