@@ -19,10 +19,17 @@ const sessionSchema = new mongoose.Schema(
   }
 );
 
+export interface SessionDocument extends mongoose.Document {
+  user: UserDocument["_id"];
+  valid: boolean;
+  userAgent: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
 
 
 
-const SessionModel = mongoose.model("Session", sessionSchema);
+const SessionModel = mongoose.model<SessionDocument>("Session", sessionSchema)
 
 export default SessionModel;
