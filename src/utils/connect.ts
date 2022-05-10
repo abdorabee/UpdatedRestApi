@@ -4,11 +4,12 @@ import logger from "./logger";
 
 async function connect() {
   const dbUri = config.get<string>("dbUri");
+
   try {
     await mongoose.connect(dbUri);
-    logger.info("DB connection established");
+    logger.info("DB connected");
   } catch (error) {
-    logger.error("Failed to connect");
+    logger.error("Could not connect to db");
     process.exit(1);
   }
 }
